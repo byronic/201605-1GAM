@@ -13,7 +13,7 @@ https://github.com/byronic
 
 """
 
-__version__ = "1.0.12"
+__version__ = "1.0.14"
 
 __title__ = "1GAM - May 2016"
 
@@ -23,46 +23,11 @@ from pygame.locals import *
 import random
 from avatar import *
 from monster import *
+import game.manager
 
 # CLASSES
-# TODO: consider refactoring this into a module
-class Game:
-	""" 
-	Added in 1.0.8
-	High-level management class, authoritative
-	  Manages:
-	   game state; 
-	   databases of monsters/avatars/maps;
-	   turn execution;
-	   level completion
-	"""
-	# game variables
+# former class Game was migrated to module game.manager
 
-	# gameState values (not final): 0 - title screen, 1 - menu, 2 - in-game
-	gameState = 0
-	# hold the current level index, and a list of spawned monsters that reference
-	# instances of the respective database entries
-	currentMap = 0
-	remainingMonsters = []
-	
-	# databases - contain exactly what they say on the tin
-	avatars = []
-	monsters = []
-	maps = []
-
-	# functions
-	def verbosePrint(self):
-		"""
-		Debugging function; prints all Game variables and databases
-		TODO: Remove in release version
-		"""
-		print "avatars", self.avatars, "\nmonsters", self.monsters, "\nmaps", self.maps 
-		print "gameState", self.gameState
-		print "currentMap", self.currentMap
-		print "remainingMonsters", self.remainingMonsters	
-
-# end class Game
-	
 # FUNCTIONS LIBRARY
 
 # MAIN
@@ -81,11 +46,10 @@ def main():
 	# Title the window
 	pygame.display.set_caption(__title__)
 
-	# game state handler creation and game manager initialization
-	game = Game()
-
 	# TODO: Remove. printing verbose gamestate log as test
-	game.verbosePrint()
+	game.manager.verbosePrint()
+	game.manager.gameState = -99
+	game.manager.verbosePrint()
 
 	# Game loop
 	quit = False
