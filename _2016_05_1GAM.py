@@ -11,12 +11,16 @@ import pygame
 import random
 import sys
 from avatar import *
+from monster import *
 
 # CLASSES
+
+# FUNCTIONS
 
 # NOT A HUGE FAN OF THE MAIN FUNCTION, so this code is all inline.
 print "I'm the main game loop."
 
 x = Avatar()
 x.getInventory()
-
+y = Monster()
+print y.x + y.y

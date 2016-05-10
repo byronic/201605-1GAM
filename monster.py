@@ -1,3 +1,9 @@
+"""
+ Holds information and performs calculations regarding monsters, and monster skills.
+   Monsters attack players, and are controlled exclusively by the AI.
+ Should this become multiplayer, this logic will need to become server-side.
+"""
+
 class Monster(object):
 	# functions
 	def __init__(self):
