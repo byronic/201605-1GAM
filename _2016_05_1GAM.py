@@ -17,5 +17,6 @@ from avatar import *
 # NOT A HUGE FAN OF THE MAIN FUNCTION, so this code is all inline.
 print "I'm the main game loop."
 
-x = avatar()
+x = Avatar()
 x.getInventory()
+
