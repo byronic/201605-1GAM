@@ -13,7 +13,7 @@ https://github.com/byronic
 
 """
 
-__version__ = "1.0.14"
+__version__ = "1.0.17"
 
 __title__ = "1GAM - May 2016"
 
@@ -46,26 +46,18 @@ def main():
 	# Title the window
 	pygame.display.set_caption(__title__)
 
-	# TODO: Remove. printing verbose gamestate log as test
-	game.manager.verbosePrint()
-	game.manager.gameState = -99
-	game.manager.verbosePrint()
-
 	# Game loop
 	quit = False
 	while not quit:
+		# draw the window
+		window.fill((148, 148, 148))
+		pygame.display.update()
+		
 		# handle user input
 		for event in pygame.event.get():
 			if event.type == QUIT:
 				pygame.quit()
 				quit = True
-			
-	# SANDBOX - TEST AREA
-	# TO BE REMOVED
-	x = Avatar()
-	x.getInventory()
-	y = Monster()
-	print y.x + y.y
 	
 	print "Exited cleanly."
 

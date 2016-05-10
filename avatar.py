@@ -8,16 +8,25 @@
 """
 
 class Avatar(object):
-    """In-game character class. Holds character health, positions, items, and skills"""
-    def __init__(self):
-        print "Avatar initialized."
+	"""In-game character class. Holds character health, positions, items, and skills"""
 
-    def getInventory(self):
-        print "Inventory."
-	print self.x, self.y
+	# variables
+	# player health does not have a maximum
+	health = 6
+	# player position as (x, y, z) coordinates
+	x = 0
+	y = 0
+	z = 0
 
-    #class instance variables
-    vitality = 0
-    maxVitality = 0
-    x = 0
-    y = 0
+	# functions
+	def __init__(self):
+		print "Avatar initialized."
+
+	def verbosePrint(self):
+		"""
+		Prints current class data to console, in its entirety.
+		For debugging use.
+		"""
+		print "health", self.health
+		print "(x, y, z) = (" + str(self.x) + ", " + str(self.y) + ", " + str(self.z) + ")"
+
