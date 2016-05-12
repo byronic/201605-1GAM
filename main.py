@@ -13,7 +13,7 @@ https://github.com/byronic
 
 """
 
-__version__ = "1.0.17"
+__version__ = "1.0.20"
 
 __title__ = "1GAM - May 2016"
 
@@ -21,8 +21,9 @@ __title__ = "1GAM - May 2016"
 import pygame
 from pygame.locals import *
 import random
-from avatar import *
-from monster import *
+from game.avatar import *
+from game.monster import *
+from game.map import *
 import game.manager
 
 # CLASSES
