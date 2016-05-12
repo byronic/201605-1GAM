@@ -16,7 +16,10 @@ class Tile:
 	"""
 	def __init__(self, x, y, graphic):
 		# prepares the tile
-		self.tileDrawData = (x * 30, y * 30, (x * 30) + 30, (y * 30) + 30)
+		# serious bugfix: this function is in the form (x0/left, y0/top, width, height)
+		#   but I expected/wrote the original as (x0/left, y0/top, x1/right, y1/bottom)
+		#    which caused an exciting difficulty.
+		self.tileDrawData = (x * 30, y * 30, 30, 30)
 		self.tileGraphic = graphic
 		
 	z = 0
