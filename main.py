@@ -13,7 +13,7 @@ https://github.com/byronic
 
 """
 
-__version__ = "1.0.20"
+__version__ = "1.0.29"
 
 __title__ = "1GAM - May 2016"
 
@@ -47,11 +47,29 @@ def main():
 	# Title the window
 	pygame.display.set_caption(__title__)
 
+	# Create and initialize test map
+	level = Map()
+	level.load("assets/test.map")
+	level.verbosePrint()
+
+	# debugging
+	print level.tiles["25,15"].tileGraphic
+
+
+
 	# Game loop
 	quit = False
 	while not quit:
 		# draw the window
 		window.fill((148, 148, 148))
+		
+		# draw the tileset in order
+		for key in level.tiles:
+			#if level.tiles[key].tileGraphic != 0:
+			pygame.draw.rect(window, colors[level.tiles[key].tileGraphic], level.tiles[key].tileDrawData)
+
+		# presents the frame update to the user - without this we 'draw' in memory
+		#  but nothing would ever be displayed
 		pygame.display.update()
 		
 		# handle user input
