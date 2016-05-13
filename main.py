@@ -13,7 +13,7 @@ https://github.com/byronic
 
 """
 
-__version__ = "1.0.36"
+__version__ = "1.0.37"
 
 __title__ = "1GAM - May 2016"
 
@@ -75,6 +75,8 @@ def main():
 		for event in pygame.event.get():
 			if event.type == MOUSEBUTTONUP:
 				print pygame.mouse.get_pos()
+				print pygame.mouse.get_pos()[0]
+				print pygame.mouse.get_pos()[1]
 			elif event.type == QUIT:
 				pygame.quit()
 				quit = True
