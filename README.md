@@ -3,7 +3,7 @@ A turn-based tactical fantasy game
 
 1 Game A Month / Friendly game-jam, May 2016.
 
-The player controls an avatar who fights monsters, controlled by AI.
+The player controls multiple fantasy heros, squadrons and mythical beasts who fight monsters, controlled by AI.
 
 The objective is to destroy all monsters on the level.
 
