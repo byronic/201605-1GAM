@@ -3,12 +3,13 @@
  Can load and save maps, keeps track of tiles for the current map
 """
 
-colors = [(255, 255, 255), (0, 255, 0), (0, 0, 255), (255, 0, 0)]
+colors = [(255, 255, 255), (0, 255, 0), (0, 0, 255), (255, 0, 0), (0, 0, 0)]
 """colors contains the color for each tile type, until it becomes a sprite later in development...
 so, 0 = no tile
 1 = grass
 2 = water
-3 = lava"""
+3 = lava
+4 = darkness"""
 
 class Tile:
 	"""

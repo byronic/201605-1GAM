@@ -14,8 +14,8 @@ class Avatar(object):
 	# player health does not have a maximum
 	health = 6
 	# player position as (x, y, z) coordinates
-	x = 0
-	y = 0
+	x = 10
+	y = 12
 	z = 0
 
 	# functions

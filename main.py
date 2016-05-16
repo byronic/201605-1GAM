@@ -13,7 +13,7 @@ https://github.com/byronic
 
 """
 
-__version__ = "1.0.37"
+__version__ = "1.0.42"
 
 __title__ = "1GAM - May 2016"
 
@@ -30,6 +30,11 @@ import game.manager
 # former class Game was migrated to module game.manager
 
 # FUNCTIONS LIBRARY
+
+def drawAvatars(window):
+	for av in game.manager.avatars:
+		# for now, no sprites, so drawing a black rectangle for avatars
+		pygame.draw.rect(window, colors[4], (av.x * 30 + 5, av.y * 30 + 5, 20, 20))
 
 # MAIN
 #   I was convinced by a neutral third-party that main()
@@ -53,6 +58,7 @@ def main():
 
 	# debugging
 	print level.tiles["25,15"].tileGraphic
+	game.manager.avatars.append(Avatar())
 
 
 
@@ -60,12 +66,17 @@ def main():
 	quit = False
 	while not quit:
 		# draw the window
+		# TODO: This entire draw function needs serious optimization
+		#         such as updating part of the screen only when necessary at a capped max fps
 		window.fill((148, 148, 148))
 		
 		# draw the tileset in order
 		for key in level.tiles:
 			if level.tiles[key].tileGraphic != 0:
 				pygame.draw.rect(window, colors[level.tiles[key].tileGraphic], level.tiles[key].tileDrawData)
+
+		# draw all avatars
+		drawAvatars(window)
 
 		# presents the frame update to the user - without this we 'draw' in memory
 		#  but nothing would ever be displayed
@@ -74,9 +85,10 @@ def main():
 		# handle user input
 		for event in pygame.event.get():
 			if event.type == MOUSEBUTTONUP:
-				print pygame.mouse.get_pos()
-				print pygame.mouse.get_pos()[0]
-				print pygame.mouse.get_pos()[1]
+				game.manager.clickedTile = pygame.mouse.get_pos()
+				game.manager.clickedTile = (game.manager.clickedTile[0] / 30,
+								game.manager.clickedTile[1] / 30)
+				print game.manager.clickedTile
 			elif event.type == QUIT:
 				pygame.quit()
 				quit = True

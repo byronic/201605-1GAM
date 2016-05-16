@@ -18,6 +18,9 @@ gameState = 0
 currentMap = 0
 remainingMonsters = []
 
+# mouse clicked tile
+clickedTile = (0, 0)
+
 # databases - contain exactly what they say on the tin
 avatars = []
 monsters = []
@@ -32,4 +35,4 @@ def verbosePrint():
 	print "avatars", avatars, "\nmonsters", monsters, "\nmaps", maps 
 	print "gameState", gameState
 	print "currentMap", currentMap
-	print "remainingMonsters", remainingMonsters	
+	print "remainingMonsters", remainingMonsters
